@@ -65,3 +65,18 @@ def quadratic(a, b, c):
                 If there is no real root, x1 == x2 == None.
     """
     # TODO: implement the stable quadratic equation solver here
+    import numpy as np
+
+    ac = 4* a * c
+    sign = b/abs(b)
+    b2 = b**2
+
+    x1 = (-b - ( sign * np.sqrt( b2 - ac )) ) / (2*a)
+    x2 = ( c / a ) / x1
+
+    if (x1 < x2): 
+        return x1, x2
+    elif (x1 != np.nan):
+        return x1, None
+    else: 
+        return None, None

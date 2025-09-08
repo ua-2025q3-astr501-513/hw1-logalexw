@@ -64,19 +64,34 @@ def quadratic(a, b, c):
                 If there is only one real root, x2 == None.
                 If there is no real root, x1 == x2 == None.
     """
-    # TODO: implement the stable quadratic equation solver here
     import numpy as np
 
-    ac = 4* a * c
-    sign = b/abs(b)
-    b2 = b**2
+    # discriminant >> if this is less than zero, we have no real roots.
+    discr = b**2 - (4*a*c)
 
-    x1 = (-b - ( sign * np.sqrt( b2 - ac )) ) / (2*a)
-    x2 = ( c / a ) / x1
-
-    if (x1 < x2): 
-        return x1, x2
-    elif (x1 != np.nan):
-        return x1, None
-    else: 
+    if discr < 0:
         return None, None
+    
+
+    # getting the sign >> check if b is zero to avoid divide error
+    if b != 0:
+        sign = b/abs(b)
+    else:
+        sign = 1
+
+
+    if a != 0:
+        x1 = (-b - ( sign * np.sqrt(discr)) ) / (2*a)
+
+        if (discr == 0): # if we only have one distinct root
+            return x1, None
+
+        elif (x1 != 0): # again, checking for a possible divide by zero
+            x2 = ( c / a ) / x1
+        
+    else: # if x1 = 0 by way of a = 0, we have no roots
+        return None, None
+
+    if x1 > x2:
+        return x1, x2
+    return x2, x1

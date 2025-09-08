@@ -64,14 +64,14 @@ def quadratic(a, b, c):
                 If there is only one real root, x2 == None.
                 If there is no real root, x1 == x2 == None.
     """
-    import numpy as np
 
+    import numpy as np
+    
     # discriminant >> if this is less than zero, we have no real roots.
     discr = b**2 - (4*a*c)
 
     if discr < 0:
         return None, None
-    
 
     # getting the sign >> check if b is zero to avoid divide error
     if b != 0:
@@ -79,7 +79,7 @@ def quadratic(a, b, c):
     else:
         sign = 1
 
-
+    # another divide by zero check.
     if a != 0:
         x1 = (-b - ( sign * np.sqrt(discr)) ) / (2*a)
 
@@ -92,11 +92,7 @@ def quadratic(a, b, c):
     else: # if x1 = 0 by way of a = 0, we have no roots
         return None, None
 
-    # if (x1 < 0) and (x2 < 0):   
-    #     if x2 < x1: 
-    #         return x1, x2
-    #     return x2, x1
-
+    # ensuring correct ordering of the roots >> smallest first
     if x1 < x2:
         return x1, x2
     return x2, x1

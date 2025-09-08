@@ -88,6 +88,14 @@ def multibit_negative(A):
 
     """
     # TODO: implement the function here
+    # recall, two's complement flips all the digits and adds one
+    for b in A:
+        b = NOT(b)
+
+    for b in A:
+        b, c = half_adder(b, 1) # adding one to each bit, moving up in significance
+        if (c == 0): # if the carry bit is zero, stop the loop
+            return A
 
 # We are now ready to implement subtraction using multibit_adder() and
 # multibit_negative().

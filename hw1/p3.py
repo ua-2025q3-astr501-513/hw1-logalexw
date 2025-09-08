@@ -92,6 +92,11 @@ def quadratic(a, b, c):
     else: # if x1 = 0 by way of a = 0, we have no roots
         return None, None
 
-    if x1 > x2:
+    # if (x1 < 0) and (x2 < 0):   
+    #     if x2 < x1: 
+    #         return x1, x2
+    #     return x2, x1
+
+    if x1 < x2:
         return x1, x2
     return x2, x1

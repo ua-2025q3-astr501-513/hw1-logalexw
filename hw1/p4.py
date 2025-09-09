@@ -46,7 +46,11 @@ class CoupledOscillators:
 
         """
         # TODO: Construct the stiffness matrix K
+        n = len(X0) # getting dimensions
+        K = np.array([2*k, -k], [-k, 2*k]) # from the class notes >> need to generalize this!!
+
         # TODO: Solve the eigenvalue problem for K to find normal modes
+
         # TODO: Store angular frequencies and eigenvectors
         # TODO: Compute initial modal amplitudes M0 (normal mode decomposition)
 

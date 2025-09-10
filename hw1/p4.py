@@ -48,7 +48,7 @@ class CoupledOscillators:
         # TODO: Construct the stiffness matrix K
         X0 = np.asarray(X0) # ensuring we have an array for x
         n = X0.size # getting dimensions
-        K = np.ones((n, n)) # empty array of ones 
+        K = np.zeros((n, n)) # empty array of ones 
 
         for i in range(n):
             K[i,i] = 2 * k # setting diagonals to sum of k_i + k_(i+1)
@@ -61,10 +61,12 @@ class CoupledOscillators:
         eigs, vecs = np.linalg.eig(K)
 
         # TODO: Store angular frequencies and eigenvectors
-        self.Omega = np.sqrt(eigs/m)
+        self.Omega = np.sqrt(eigs)
         self.V = vecs
         # TODO: Compute initial modal amplitudes M0 (normal mode decomposition)
-        self.M0 = vecs @ X0
+        self.M0 = vecs.T @ X0
+
+        # print(self.Omega)
 
 
     def __call__(self, t):

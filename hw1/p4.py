@@ -66,8 +66,6 @@ class CoupledOscillators:
         # TODO: Compute initial modal amplitudes M0 (normal mode decomposition)
         self.M0 = vecs.T @ X0
 
-        # print(self.Omega)
-
 
     def __call__(self, t):
         """Calculate the displacements of the oscillators at time t.

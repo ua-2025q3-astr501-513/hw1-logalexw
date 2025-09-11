@@ -38,17 +38,20 @@
 
 # TODO: Edit this sample idea.
 
-- topic: Numerical Linear Algebra
-  idea:  Develop a fast matrix multiplication algorithm to reduce
-         energy consumption during deep learning inference.
+- topic: Fourier Transform and Spectral Analysis
+  idea:  Using spectral analysis and decomposition to characterize the 
+        large- and fine-scale convection in solar data from SOHO and SDO.
 
 # TODO: Add two more project ideas below, following the same format as
 # the example above.
 # Remember to ensure that each idea is distinct and concise, and each
 # "topic" must be one of the listed course topics.
 
-- topic:
-  idea:
+- topic: ODE Integrators
+  idea: Simulating a simple 2D model of a shear layer in a rotating star 
+        to model the Kevin Helmholtz instability, with the possible addition of 
+        a simple nuclear reaction network to investigate nucleosynthesis.
 
-- topic:
-  idea: 
+- topic: PDE Solvers
+  idea: Solving a simplified model of heat/thermal diffusion for an 
+        accretion disk.
